@@ -1,6 +1,18 @@
+import React, { useState } from "react";
 import './App.css';
 
 function App() {
+  const [values, setValues] = useState();
+  console.log(values);
+
+  const handleChangeValues = (value) => {
+    setValues(prevValue => ({
+      ...prevValue,
+      [value.target.name]: value.target.value
+    }))
+  }
+
+
   return (
     <div className="app-container">
       <div className="register-container">
@@ -10,18 +22,21 @@ function App() {
           name="name"
           placeholder='Name' 
           className="register-input" 
+          onChange={handleChangeValues}
         />
         <input
           type="text"
           name="cost"
           placeholder='Price' 
           className="register-input" 
+          onChange={handleChangeValues}
         />
         <input
           type="text"
           name="category"
           placeholder='Category' 
           className="register-input" 
+          onChange={handleChangeValues}
         />
         <button className="register-button">Register</button>
       </div>
