@@ -3,13 +3,17 @@ import './App.css';
 
 function App() {
   const [values, setValues] = useState();
-  console.log(values);
+  // console.log(values);
 
   const handleChangeValues = (value) => {
     setValues(prevValue => ({
       ...prevValue,
       [value.target.name]: value.target.value
     }))
+  }
+
+  const handlerClickButton = () => {
+    console.log(values);
   }
 
 
@@ -38,7 +42,12 @@ function App() {
           className="register-input" 
           onChange={handleChangeValues}
         />
-        <button className="register-button">Register</button>
+        <button 
+          onClick={() => handlerClickButton()}
+          className="register-button"
+        >
+          Register
+        </button>
       </div>
     </div>
   );
